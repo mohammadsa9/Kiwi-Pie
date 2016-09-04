@@ -30,7 +30,6 @@ mdss-dsi-objs += mdss_dsi_panel.o
 mdss-dsi-objs += msm_mdss_io_8974.o
 obj-$(CONFIG_FB_MSM_MDSS) += mdss-dsi.o
 obj-$(CONFIG_FB_MSM_MDSS) += mdss_panel.o
-obj-$(CONFIG_FB_MSM_MDSS) += adv7533_dsi2hdmi.o
 obj-$(CONFIG_FB_MSM_MDSS_EDP_PANEL) += mdss_edp.o
 obj-$(CONFIG_FB_MSM_MDSS_EDP_PANEL) += mdss_edp_aux.o
 
@@ -47,8 +46,11 @@ obj-$(CONFIG_FB_MSM_MDSS_WRITEBACK) += mdss_wb.o
 mdss-qpic-objs := mdss_qpic.o mdss_fb.o mdss_qpic_panel.o
 obj-$(CONFIG_FB_MSM_QPIC) += mdss-qpic.o
 obj-$(CONFIG_FB_MSM_QPIC_ILI_QVGA_PANEL) += qpic_panel_ili_qvga.o
+obj-$(CONFIG_DEBUG_FS) += lcd_debugfs.o
+obj-$(CONFIG_HUAWEI_LCD) += hw_lcd_common.o
 
 obj-$(CONFIG_FB_MSM_MDSS) += mdss_fb.o mdss_util.o
 obj-$(CONFIG_COMPAT) += mdss_compat_utils.o
-
-obj-$(CONFIG_FB_MSM_MDSS) += mdss_livedisplay.o
+obj-$(CONFIG_HUAWEI_LCD) += hw_lcd_debug.o
+obj-$(CONFIG_HUAWEI_LCD) += tp_color.o
+obj-$(CONFIG_FB_MSM_MDSS_KCAL_CTRL) += mdss_mdp_kcal_ctrl.o
