@@ -4,13 +4,13 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Derp Kernel by akhilnarang
-do.devicecheck=1
+kernel.string=~HotDoG Kernel by MohammadSa9~
+do.devicecheck=0
 do.modules=0
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=whyred
-device.name2=wayne
+device.name1=kiwi
+device.name2=
 device.name3=
 device.name4=
 device.name5=
