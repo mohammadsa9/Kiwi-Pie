@@ -154,34 +154,6 @@ config IOSCHED_SIOPLUS
 	  ensure fairness. The algorithm does not do any sorting but
 	  basic merging, trying to keep a minimum overhead. It is aimed
 	  mainly for aleatory access devices (eg: flash devices).
-	  
-config IOSCHED_TRIPNDROID
- 	tristate "Tripndroid"
- 	default y
- 	---help---
- 	  The Trip N Droid scheduler
- 	  
-config IOSCHED_VR
- 	tristate "V(R) I/O scheduler"
- 	default y
- 	---help---
- 	  Requests are chosen according to SSTF with a penalty of rev_penalty
- 	  for switching head direction.  
-
-config IOSCHED_MAPLE
-	tristate "Maple I/O scheduler"
-	default y
-
-config IOSCHED_SWITCHER
-	bool "Use Noop while the screen is off"
-	default y
-	---help---
-	  This enables a driver that switches the I/O scheduler for a single
-	  block device to Noop when the screen turns off, and back to its
-	  original I/O scheduler after a delay when the screen is turned back
-	  on. It requires being manually initialized from a different driver
-	  in order to grab the request_queue pointer that should have its I/O
-	  scheduler switched to Noop when the screen turns off.
 
 choice
 	prompt "Default I/O scheduler"
@@ -216,30 +188,18 @@ choice
 		  any workload. It also tries to guarantee low latency to
 		  interactive and soft real-time applications.
 
-<<<<<<< HEAD
-=======
+
 	config DEFAULT_FIOPS
 		bool "FIOPS" if IOSCHED_FIOPS=y
 
 	config DEFAULT_SIOPLUS
 		bool "SIOPLUS" if IOSCHED_SIOPLUS=y
->>>>>>> 3c7988849... block: add zen & SIO+ scheduler
-
-	config DEFAULT_TRIPNDROID
- 		bool "TRIPNDROID" if IOSCHED_TRIPNDROID=y
 
 	config DEFAULT_NOOP
 		bool "No-op"
 
 	config DEFAULT_SIO
 		bool "SIO" if IOSCHED_SIO=y
-
-	config DEFAULT_VR
-		bool "V(R)" if IOSCHED_VR=y
-
-	config DEFAULT_MAPLE
-		bool "Maple" if IOSCHED_MAPLE=y
-
 
 endchoice
 
@@ -254,9 +214,6 @@ config DEFAULT_IOSCHED
 	default "sio" if DEFAULT_SIO
 	default "zen" if DEFAULT_ZEN
 	default "sioplus" if DEFAULT_SIOPLUS
-	default "tripndroid" if DEFAULT_TRIPNDROID
-	default "vr" if DEFAULT_VR
-	default "maple" if DEFAULT_MAPLE
 
 endmenu
 
