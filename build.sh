@@ -26,7 +26,7 @@ NEW_OUT=$OUT_DIR
 
 # Kernel Version Info
 BASE="-HotDoG™"
-CUR_VER="-7"
+CUR_VER="-7.2"
 HD_VER="$BASE$CUR_VER"
  
 
